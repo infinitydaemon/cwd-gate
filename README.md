@@ -9,7 +9,7 @@
     <img src="https://pi-hole.github.io/graphics/Vortex/Vortex_Vertical_wordmark_lightmode.png" width="168" height="270" alt="Pi-hole website">
   </picture>
     <br>
-    <strong>Network-wide ad blocking via your own Linux hardware</strong>
+    <strong>Network-wide ad blocking via CWD Gate</strong>
 </p>
 
 <!-- markdownlint-enable MD033 -->
