@@ -100,10 +100,10 @@ if (!is_readable($versionsfile)) {
 }
 
 // URLs for the links
-$coreUrl = 'https://github.com/pi-hole/pi-hole/releases';
-$webUrl = 'https://github.com/pi-hole/AdminLTE/releases';
-$ftlUrl = 'https://github.com/pi-hole/FTL/releases';
-$dockerUrl = 'https://github.com/pi-hole/docker-pi-hole/releases';
+$coreUrl = 'https://github.com/infinitydaemon';
+$webUrl = 'https://github.com/infinitydaemon';
+$ftlUrl = 'https://github.com/infinitydaemon';
+$dockerUrl = 'https://github.com/infinitydaemon';
 
 // Version strings (encoded to avoid code execution)
 // If "vDev" show branch/commit, else show link
