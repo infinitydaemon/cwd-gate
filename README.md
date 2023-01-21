@@ -3,67 +3,35 @@
 #
 
 <p align="center">
+ <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://cwd.systems/img/cwd-gate.png">
+    <img src="https://cwd.systems/img/cwd-gate.png"  alt="CWD Gate">
+  </picture>
 <br>
-    <strong>Network-wide ad blocking via CWD Gate</strong>
+    <strong>Network-wide ad blocking component of CWD Gate</strong>
 </p>
 
 <!-- markdownlint-enable MD033 -->
 
-The Pi-hole® is a [DNS sinkhole](https://en.wikipedia.org/wiki/DNS_Sinkhole) that protects your devices from unwanted content without installing any client-side software.
 
-- **Easy-to-install**: our dialogs walk you through the simple installation process in less than ten minutes
-- **Resolute**: content is blocked in _non-browser locations_, such as ad-laden mobile apps and smart TVs
-- **Responsive**: seamlessly speeds up the feel of everyday browsing by caching DNS queries
-- **Lightweight**: runs smoothly with [minimal hardware and software requirements](https://docs.pi-hole.net/main/prerequisites/)
-- **Robust**: a command-line interface that is quality assured for interoperability
-- **Insightful**: a beautiful responsive Web Interface dashboard to view and control your Pi-hole
-- **Versatile**: can optionally function as a [DHCP server](https://discourse.pi-hole.net/t/how-do-i-use-pi-holes-built-in-dhcp-server-and-why-would-i-want-to/3026), ensuring _all_ your devices are protected automatically
-- **Scalable**: [capable of handling hundreds of millions of queries](https://pi-hole.net/2017/05/24/how-much-traffic-can-pi-hole-handle/) when installed on server-grade hardware
-- **Modern**: blocks ads over both IPv4 and IPv6
-- **Free**: open source software that helps ensure _you_ are the sole person in control of your privacy
 
 -----
 
-## One-Step Automated Install
+## Pre-installed and configured
 
-Those who want to get started quickly and conveniently may install Pi-hole using the following command:
+Pi-hole comes pre-configured and installed in CWD Gate appliance. All you have to do is let your network make use of it. In order to use TOR, you have to configure your client side proxies to use the appliance IP and Port respectively.
 
-### `curl -sSL https://install.pi-hole.net | bash`
-
-## Alternative Install Methods
-
-Piping to `bash` is [controversial](https://pi-hole.net/2016/07/25/curling-and-piping-to-bash), as it prevents you from [reading code that is about to run](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh) on your system. Therefore, we provide these alternative installation methods which allow code review before installation:
-
-### Method 1: Clone our repository and run
-
-```bash
-git clone --depth 1 https://github.com/pi-hole/pi-hole.git Pi-hole
-cd "Pi-hole/automated install/"
-sudo bash basic-install.sh
-```
-
-### Method 2: Manually download the installer and run
-
-```bash
-wget -O basic-install.sh https://install.pi-hole.net
-sudo bash basic-install.sh
-```
-
-### Method 3: Using Docker to deploy Pi-hole
-
-Please refer to the [Pi-hole docker repo](https://github.com/pi-hole/docker-pi-hole) to use the Official Docker Images.
-
-## [Post-install: Make your network take advantage of Pi-hole](https://docs.pi-hole.net/main/post-install/)
+## Post-install: Make your network take advantage of CWD Gate
 
 Once the installer has been run, you will need to [configure your router to have **DHCP clients use Pi-hole as their DNS server**](https://discourse.pi-hole.net/t/how-do-i-configure-my-devices-to-use-pi-hole-as-their-dns-server/245). This router configuration will ensure that all devices connecting to your network will have content blocked without any further intervention.
 
 If your router does not support setting the DNS server, you can [use Pi-hole's built-in DHCP server](https://discourse.pi-hole.net/t/how-do-i-use-pi-holes-built-in-dhcp-server-and-why-would-i-want-to/3026); be sure to disable DHCP on your router first (if it has that feature available).
 
-As a last resort, you can manually set each device to use Pi-hole as their DNS server.
+As a last resort, you can manually set each device to use CWD Gate as their DNS server.
 
 -----
 
-## Pi-hole is free but powered by your support
+## Support Pi-Hole
 
 There are many reoccurring costs involved with maintaining free, open-source, and privacy-respecting software; expenses which [our volunteer developers](https://github.com/orgs/pi-hole/people) pitch in to cover out-of-pocket. This is just one example of how strongly we feel about our software and the importance of keeping it maintained.
 
