@@ -33,7 +33,8 @@ As a last resort, you can manually set each device to use CWD Gate as their DNS 
 
 ## Support Pi-Hole
 
-There are many reoccurring costs involved with maintaining free, open-source, and privacy-respecting software; expenses which [our volunteer developers](https://github.com/orgs/pi-hole/people) pitch in to cover out-of-pocket. This is just one example of how strongly we feel about our software and the importance of keeping it maintained.
+There are many reoccurring costs involved with maintaining free, open-source, and privacy-respecting software; expenses which [our volunteer developers](https://github.com/orgs/pi-hole/people) pitch in to cover out-of-pocket. This is just one example of how strongly we feel about our software and the importance of keeping it maintained. This component 
+would have not been possible without Pi-Hole developers. Please support them!
 
 Make no mistake: **your support is absolutely vital to help keep us innovating!**
 
