@@ -55,7 +55,7 @@ if (isset($core_commit) || isset($web_commit) || isset($FTL_commit)) {
     <footer class="main-footer">
         <div class="row row-centered text-center">
             <div class="col-xs-12 col-sm-6">
-                <strong><a href="https://cwd.systems/" rel="noopener" target="_blank">CWD SYSTEMS GATE APPLIANCE</a></strong>
+                <strong><a href="https://cwd.systems/" rel="noopener" target="_blank">CWD SYSTEMS</a></strong>
             </div>
         </div>
 
