@@ -19,7 +19,7 @@
 
 ## Pre-installed and configured
 
-Pi-hole comes pre-configured and installed in CWD Gate appliance. All you have to do is let your network make use of it. In order to use TOR, you have to configure your client side proxies to use the appliance IP and Port respectively.
+Pi-hole comes pre-configured and installed in CWD Gate appliance and is a vital component of privacy package. All you have to do is let your network make use of it. In order to use TOR, you have to configure your client side proxies to use the appliance IP and Port respectively.
 
 ## Post-install: Make your network take advantage of CWD Gate
 
