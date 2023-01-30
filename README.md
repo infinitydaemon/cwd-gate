@@ -11,8 +11,23 @@
     <strong>Network-wide ad blocking component of CWD Gate</strong>
 </p>
 
-<!-- markdownlint-enable MD033 -->
+```python
+class CWD_GATE():
+    
+  def __init__(self):
+    self.name = "cwd";
+    self.username = "cwdsystems";
+    self.location = "USA, Canada, Pakistan, KyrgzRepublic, Indonesia";
+    self.protonmail = "@cwdsystems";
+    self.web = "https://cwd.systems";
+    self.languages ="Python,C,PHP,HTML,Bash,Assembly";
+  
+  def __str__(self):
+    return self.name
 
+if __name__ == '__main__':
+    me = CWD_GATE()
+```
 
 
 -----
