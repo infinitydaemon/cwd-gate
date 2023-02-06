@@ -44,20 +44,11 @@ If your router does not support setting the DNS server, you can [use Pi-hole's b
 
 As a last resort, you can manually set each device to use CWD Gate as their DNS server.
 
+Tor Daemon and Wireguard , High Speed Routing come pre-configured and ready to use out of box as well. 
+
 -----
 
-## Support Pi-Hole
-
-There are many reoccurring costs involved with maintaining free, open-source, and privacy-respecting software; expenses which [our volunteer developers](https://github.com/orgs/pi-hole/people) pitch in to cover out-of-pocket. This is just one example of how strongly we feel about our software and the importance of keeping it maintained. This component 
-would have not been possible without Pi-Hole developers. Please support them!
-
-Make no mistake: **your support is absolutely vital to help keep us innovating!**
-
-### [Donations](https://pi-hole.net/donate)
-
-Donating using our Sponsor Button is **extremely helpful** in offsetting a portion of our monthly expenses:
-
-### Alternative support
+### Alternative support for Pi-hole
 
 If you'd rather not donate (_which is okay!_), there are other ways you can help support us:
 
@@ -76,19 +67,6 @@ We welcome _everyone_ to contribute to issue reports, suggest new features, and 
 If you have something to add - anything from a typo through to a whole new feature, we're happy to check it out! Just make sure to fill out our template when submitting your request; the questions it asks will help the volunteers quickly understand what you're aiming to achieve.
 
 You'll find that the [install script](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh) and the [debug script](https://github.com/pi-hole/pi-hole/blob/master/advanced/Scripts/piholeDebug.sh) have an abundance of comments, which will help you better understand how Pi-hole works. They're also a valuable resource to those who want to learn how to write scripts or code a program! We encourage anyone who likes to tinker to read through it and submit a pull request for us to review.
-
------
-
-## Getting in touch with us
-
-While we are primarily reachable on our [Discourse User Forum](https://discourse.pi-hole.net/), we can also be found on various social media outlets.
-
-**Please be sure to check the FAQs** before starting a new discussion, as we do not have the spare time to reply to every request for assistance.
-
-- [Frequently Asked Questions](https://discourse.pi-hole.net/c/faqs)
-- [Feature Requests](https://discourse.pi-hole.net/c/feature-requests?order=votes)
-- [Reddit](https://www.reddit.com/r/pihole/)
-- [Twitter](https://twitter.com/The_Pi_hole)
 
 -----
 
