@@ -44,7 +44,7 @@ If your router does not support setting the DNS server, you can [use Pi-hole's b
 
 As a last resort, you can manually set each device to use CWD Gate as their DNS server.
 
-[TOR](https://torproject.org/) and [Wireguard](https://wireguard.com/) , [Routing](https://opensource.com/business/16/8/introduction-linux-network-routing) come pre-configured and ready to use out of box as well. 
+[TOR](https://torproject.org/) , [Wireguard](https://wireguard.com/) and [Routing](https://opensource.com/business/16/8/introduction-linux-network-routing) come pre-configured and ready to use out of box as well. 
 
 -----
 
