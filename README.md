@@ -147,7 +147,7 @@ There are several ways to [access the dashboard](https://discourse.pi-hole.net/t
 1. `http://pi.hole/admin/` (when using Pi-hole as your DNS server)
 2. `http://<IP_ADDRESS_OF_YOUR_PI_HOLE>/admin/`
 
-Assuming your LAN network is 192.168.1.x and the appliance is on a public IP address [Firewall Reference](https://web.mit.edu/rhel-doc/4/RH-DOCS/rhel-sg-en-4/s1-firewall-ipt-basic.html)
+Assuming your LAN network is 192.168.1.x and the appliance is on a public IP address [Firewall Reference](https://www.ibm.com/support/pages/using-iptables-block-specific-ports)
 
 * Allow SSH from LAN only
 
