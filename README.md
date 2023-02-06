@@ -8,7 +8,7 @@
     <img src="https://cwd.systems/img/cwd-gate.png"  alt="CWD Gate">
   </picture>
 <br>
-    <strong>Network-wide ad blocking component of CWD Gate</strong>
+    <strong>CWD Gate AIO Appliance</strong>
 </p>
 
 ```python
