@@ -146,3 +146,18 @@ There are several ways to [access the dashboard](https://discourse.pi-hole.net/t
 
 1. `http://pi.hole/admin/` (when using Pi-hole as your DNS server)
 2. `http://<IP_ADDRESS_OF_YOUR_PI_HOLE>/admin/`
+
+### Port Access Filter
+
+Assuming your LAN network is 192.168.1.x and the appliance is on a public IP address [Firewall Reference](https://www.ibm.com/support/pages/using-iptables-block-specific-ports)
+
+* Allow SSH from LAN only
+
+`iptables -A INPUT -p tcp --dport 22 -s 192.168.1.0/24 -j ACCEPT ` && 
+`iptables -A INPUT -p tcp --dport 22 -j DROP`
+
+* Allow Web Access only from LAN
+
+`iptables -A INPUT -p tcp --dport 80 -s 192.168.1.0/24 -j ACCEPT` && 
+`iptables -A INPUT -p tcp --dport 80 -j DROP`
+
