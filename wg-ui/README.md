@@ -1,9 +1,3 @@
-# WireGuard Easy
-
-<p align="center">
-  <img src="./assets/screenshot.png" width="802" />
-</p>
-
 ## Features
 
 * All-in-one: WireGuard + Web UI.
