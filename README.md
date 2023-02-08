@@ -139,3 +139,8 @@ Assuming your LAN network is 192.168.1.x and the appliance is on a public IP add
 `iptables -A INPUT -p tcp --dport 80 -s 192.168.1.0/24 -j ACCEPT` && 
 `iptables -A INPUT -p tcp --dport 80 -j DROP`
 
+* Restrict FTP Access to LAN only
+
+`iptables -A INPUT -p tcp --dport 53 -s 192.168.1.0/24 -j ACCEPT` && 
+`iptables -A INPUT -p tcp --dport 53 -j DROP`
+
