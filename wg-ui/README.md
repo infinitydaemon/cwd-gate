@@ -1,3 +1,5 @@
+## Wireguard UI component for CWD GATE Appliance. 
+
 ## Features
 
 * All-in-one: WireGuard + Web UI.
@@ -48,11 +50,11 @@ $ docker run -d \
   weejewel/wg-easy
 </pre>
 
-> 💡 Replace `YOUR_SERVER_IP` with your WAN IP, or a Dynamic DNS hostname.
+> 💡 Replace `CWD_GATE_IP` with your WAN IP, or a Dynamic DNS hostname.
 > 
 > 💡 Replace `YOUR_ADMIN_PASSWORD` with a password to log in on the Web UI.
 
-The Web UI will now be available on `http://0.0.0.0:51821`.
+The Web UI will now be available on `http://CWD_GATE_IP:51821`.
 
 > 💡 Your configuration files will be saved in `~/.wg-easy`
 
