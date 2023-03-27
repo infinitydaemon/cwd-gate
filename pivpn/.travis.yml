@@ -1,0 +1,167 @@
+language: shell
+
+addons:
+  hosts:
+    - pivpn.test
+
+services:
+  - docker
+
+stages:
+  - lint
+  - style
+  - test
+  - release
+
+branches:
+  only:
+    - test
+    - master
+    - dev
+
+
+jobs:
+  include:
+    - stage: lint
+      name: "Shellcheck lint"
+      dist: jammy
+      addons:
+        apt:
+          packages:
+            - shellcheck
+      virt: vm
+      arch: amd64
+      script:
+        - shellcheck -x auto_install/install.sh
+        - find ciscripts/ -type f -regex '.*\.sh'| xargs shellcheck -x
+        - find scripts/ -type f | xargs shellcheck -x
+
+    - stage: style
+      name: "Shell Style Guide"
+      dist: jammy
+      addons:
+        snaps:
+          - shfmt
+      virt: vm
+      arch: amd64
+      script:
+        - shfmt -d -i 2 -ci -sr -bn auto_install/install.sh
+        - find ciscripts/ -type f -regex '.*\.sh' | xargs shfmt -d -i 2 -ci -sr -bn
+        - find scripts/ -type f | xargs shfmt -d -i 2 -ci -sr -bn
+
+    - stage: test
+      name: "OpenVPN Bionic (18.04)"
+      dist: bionic
+      virt: vm
+      arch: amd64
+      env:
+        - VPNPROTO=openvpn
+      before_script: 
+        - sudo chmod +x ciscripts/*.sh
+        - ./ciscripts/pre_checks.sh
+        - ./ciscripts/startup.sh -o
+      script:
+        - ./ciscripts/test_install.sh
+        - ./ciscripts/test.sh -o
+      after_fail:
+        - sudo journalctl -xe
+
+    - stage: test
+      name: "Wireguard Bionic (18.04)"
+      dist: bionic
+      virt: vm
+      arch: amd64
+      env:
+        - VPNPROTO=wireguard
+      before_script: 
+        - sudo chmod +x ciscripts/*.sh
+        - ./ciscripts/pre_checks.sh
+        - ./ciscripts/startup.sh -w
+      script:
+        - ./ciscripts/test_install.sh
+        - ./ciscripts/test.sh -w
+      after_fail:
+        - sudo journalctl -xe
+
+    - stage: test
+      name: "OpenVPN Focal (20.04)"
+      dist: focal
+      virt: vm
+      arch: amd64
+      env:
+        - VPNPROTO=openvpn
+      before_script: 
+        - sudo chmod +x ciscripts/*.sh
+        - ./ciscripts/pre_checks.sh
+        - ./ciscripts/startup.sh -o
+      script:
+        - ./ciscripts/test_install.sh
+        - ./ciscripts/test.sh -o
+      after_fail:
+        - sudo journalctl -xe
+
+    - stage: test
+      name: "Wireguard Focal (20.04)"
+      dist: focal
+      virt: vm
+      arch: amd64
+      env:
+        - VPNPROTO=wireguard
+      before_script: 
+        - sudo chmod +x ciscripts/*.sh
+        - ./ciscripts/pre_checks.sh
+        - ./ciscripts/startup.sh -w
+      script:
+        - ./ciscripts/test_install.sh
+        - ./ciscripts/test.sh -w
+      after_fail:
+        - sudo journalctl -xe
+
+    - stage: test
+      name: "OpenVPN Jammy (22.04)"
+      dist: jammy
+      virt: vm
+      arch: amd64
+      env:
+        - VPNPROTO=openvpn
+      before_script: 
+        - sudo chmod +x ciscripts/*.sh
+        - ./ciscripts/pre_checks.sh
+        - ./ciscripts/startup.sh -o
+      script:
+        - ./ciscripts/test_install.sh
+        - ./ciscripts/test.sh -o
+      after_fail:
+        - sudo journalctl -xe
+
+    - stage: test
+      name: "Wireguard Jammy (22.04)"
+      dist: jammy
+      virt: vm
+      arch: amd64
+      env:
+        - VPNPROTO=wireguard
+      before_script: 
+        - sudo chmod +x ciscripts/*.sh
+        - ./ciscripts/pre_checks.sh
+        - ./ciscripts/startup.sh -w
+      script:
+        - ./ciscripts/test_install.sh
+        - ./ciscripts/test.sh -w
+      after_fail:
+        - sudo journalctl -xe
+
+    - stage: "release"
+      name: "release" 
+      if: type = push
+      dist: jammy
+      virt: vm
+      arch: amd64
+      language: node_js
+      node_js:
+        - "node"
+      install:
+        - npm install @semantic-release/github -D
+        - npm install @semantic-release/changelog -D
+      script:
+        - npx semantic-release
