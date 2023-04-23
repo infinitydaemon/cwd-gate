@@ -11,3 +11,5 @@ else:
 
 cron_job_command = f"echo '{update_command}' | sudo tee -a /etc/cron.daily/package-update && sudo chmod +x /etc/cron.daily/package-update"
 subprocess.check_call(['bash', '-c', cron_job_command])
+
+# WIP. Needs debug.
