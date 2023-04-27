@@ -1,47 +1,26 @@
 <?php
-/* Pi-hole: A black hole for Internet advertisements
-*  (c) 2017 Pi-hole, LLC (https://pi-hole.net)
-*  Network-wide ad blocking via your own hardware.
-*
-*  This file is copyright under the latest version of the EUPL.
-*  Please see LICENSE file for your rights under this license. */
-
-// Sanitize SERVER_NAME output
-$serverName = htmlspecialchars($_SERVER["SERVER_NAME"]);
-// Remove external ipv6 brackets if any
+$serverName = filter_input(INPUT_SERVER, 'SERVER_NAME', FILTER_SANITIZE_STRING);
 $serverName = preg_replace('/^\[(.*)\]$/', '${1}', $serverName);
 
-// Set landing page location, found within /var/www/html/
 $landPage = "../landing.php";
 
-// Define array for hostnames to be accepted as self address for splash page
 $authorizedHosts = [ "localhost" ];
 if (!empty($_SERVER["FQDN"])) {
-    // If setenv.add-environment = ("fqdn" => "true") is configured in lighttpd,
-    // append $serverName to $authorizedHosts
     array_push($authorizedHosts, $serverName);
 } else if (!empty($_SERVER["VIRTUAL_HOST"])) {
-    // Append virtual hostname to $authorizedHosts
     array_push($authorizedHosts, $_SERVER["VIRTUAL_HOST"]);
 }
 
-// Determine block page type
-if ($serverName === "pi.hole"
-    || (!empty($_SERVER["VIRTUAL_HOST"]) && $serverName === $_SERVER["VIRTUAL_HOST"])) {
-    // Redirect to Web Interface
+if ($serverName === "pi.hole" || (!empty($_SERVER["VIRTUAL_HOST"]) && $serverName === $_SERVER["VIRTUAL_HOST"])) {
     header("Location: /admin");
     exit();
 } elseif (filter_var($serverName, FILTER_VALIDATE_IP) || in_array($serverName, $authorizedHosts)) {
-    // When directly browsing via IP or authorized hostname
-    // Render splash/landing page based off presence of $landPage file
-    // Unset variables so as to not be included in $landPage or $splashPage
     unset($authorizedHosts);
-    // If $landPage file is present
     if (is_file(getcwd()."/$landPage")) {
-        unset($serverName, $viewPort); // unset extra variables not to be included in $landpage
         include $landPage;
         exit();
     }
+}
     // If $landPage file was not present, Set Splash Page output
     $splashPage = <<<EOT
     <!doctype html>
