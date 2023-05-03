@@ -2,7 +2,7 @@ import dns.resolver
 import time
 
 # Set the DNS server IP address
-dns_server = '192.168.100.64' # Replace with your FTP DNS IP
+dns_server = '192.168.100.64' # Replace with your GATE's FTL DNS IP
 
 # Set the domain name to resolve
 domain_name = 'cwd.systems'
