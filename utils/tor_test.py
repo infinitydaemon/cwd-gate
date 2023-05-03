@@ -4,7 +4,7 @@ import requests
 import time
 
 # Set the IP address and port of the Tor SOCKS proxy running on GATE Appliance
-proxy_ip = '192.168.100.64'
+proxy_ip = '192.168.100.64' # Change to your CWD Gate IP address
 proxy_port = 9050
 
 # Set the Tor check URL to test internet connectivity and download speed
