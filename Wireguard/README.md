@@ -67,11 +67,21 @@ not setting these variables and relying on the auto-detection. However, if
 you're writing a package for a distro, you'll want to explicitly set these,
 depending on what you want.
 
-## `contrib/`
+## `contrib`
 
 The `contrib/` subdirectory contains various scripts and examples. Most of these
 are not immediately useful for production use, but should provide inspiration for
 creating fully-featured tools. See the `README` in each directory.
+
+## `Note`
+
+Wireguard in CWD GATE now uses 5 cryptographic standards included with wireguard kernel stack.
+
+ChaCha20 for symmetric encryption, authenticated with Poly1305, using RFC7539's AEAD construction <p>
+Curve25519 for ECDH <p>
+BLAKE2s for hashing and keyed hashing, described in RFC7693 <p>
+SipHash24 for hashtable keys <p>
+HKDF for key derivation, as described in RFC5869 <p>
 
 ## License
 
