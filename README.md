@@ -129,6 +129,10 @@ There are several ways to [access the dashboard](https://discourse.pi-hole.net/t
 
 Assuming your LAN network is 192.168.1.x and the appliance is on a public IP address [Firewall Reference](https://www.ibm.com/support/pages/using-iptables-block-specific-ports)
 
+### TOR Router Access
+
+Every network is different and TOR Router needs to listen to specified interface and IP address. Edit the /etc/tor/torrc file and enter the assigned static IP address with port 9050. This assigned IP and port will be used as a TOR proxy on your network proxy settings or browser proxy settings. 
+
 * Allow SSH from LAN only
 
 `iptables -A INPUT -p tcp --dport 22 -s 192.168.1.0/24 -j ACCEPT ` && 
