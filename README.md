@@ -162,6 +162,8 @@ CWD Gate uses only 6 service ports which are 22 (Inbound SSH), 53 (DNS frontend)
 
 ### Allowing SSH from LAN only ( Change as per your network specifications )
 
+Note: Firewall filtering is only required if your CWD GATE is exposed on the internet with direct IP assignment. If it is behind CWD Blade or another firewall then the below commands will not be reuquired. 
+
 `iptables -A INPUT -p tcp --dport 22 -s 192.168.2.0/24 -j ACCEPT ` && 
 `iptables -A INPUT -p tcp --dport 22 -j DROP`
 
