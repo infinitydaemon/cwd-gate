@@ -158,7 +158,7 @@ test      (none)         10.172.10.2,fd11:5ee:bad:c0de::2/128  0B               
 `
 ### Default Listening Ports
 
-CWD Gate uses only 6 service ports which are 22 (Inbound SSH), 53 (DNS frontend), 9050 and 9051 (TOR Router) and 4711 (FTL DNS). These ports are only accessible from LAN sid eand not WAN but also depends on how you have configured your firewall and router.
+CWD Gate uses only 6 service ports which are 22 (Inbound SSH), 53 (DNS frontend), 9050 and 9051 (TOR Router) and 4711 (FTL DNS). These ports are only accessible from LAN sid eand not WAN but also depends on how you have configured your firewall and router. This can be confirmed with `ss -tunpl`
 
 ### Allowing SSH from LAN only ( Change as per your network specifications )
 
