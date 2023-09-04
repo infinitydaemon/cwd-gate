@@ -137,6 +137,8 @@ SocksPort 9050 # Default: Bind to localhost:9050 for local connections. <p>
 SocksPort 192.168.1.203:9050 # Bind to this address:port too. <p>
 SocksPolicy accept 192.168.1.0/24<p>
 
+Once you have made your configuration changes, you can restart the TOR daemon with /etc/init.d/tor restart.
+
 ### Configure Wireguard for Public & Interface IP assignments
 
 The file setupVars.conf located in /etc/pivpn/wireguard allows you to assign listening LAN and WAN IP addresses. There are only two entries that you have to modify:
