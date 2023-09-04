@@ -122,7 +122,7 @@ Some notable features include:
 
 There are two ways to [access the dashboard](https://discourse.pi-hole.net/t/how-do-i-access-pi-holes-dashboard-admin-interface/3168):
 
-1. `http://cwd.gate/admin/` (when using Pi-hole as your DNS server)
+1. `http://cwd.gate/admin/` (when using FTL as your DNS server)
 2. `http://<IP_ADDRESS_OF_YOUR_PI_HOLE>/admin/`
 
 ### Port Access Filter
