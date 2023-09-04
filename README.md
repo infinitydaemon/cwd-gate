@@ -86,6 +86,7 @@ Some of the statistics you can integrate include:
 - Queries forwarded (to your chosen upstream DNS server)
 - Queries cached
 - Unique clients
+- Current default limit set to 4000 DNS queries per second per client. Can be raised safely to 9500 queries per second per client.
 
 Access the API via [`telnet`](https://github.com/pi-hole/FTL), the Web (`admin/api.php`) and Command Line (`pihole -c -j`). You can find out [more details over here](https://discourse.pi-hole.net/t/pi-hole-api/1863).
 
