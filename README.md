@@ -133,6 +133,10 @@ Assuming your LAN network is 192.168.1.x and the appliance is on a public IP add
 
 Every network is different and TOR Router needs to listen to specified interface and IP address. Edit the /etc/tor/torrc file and enter the assigned static IP address with port 9050. This assigned IP and port will be used as a TOR proxy on your network proxy settings or browser proxy settings. 
 
+SocksPort 9050 # Default: Bind to localhost:9050 for local connections. <p>
+SocksPort 192.168.1.203:9050 # Bind to this address:port too. <p>
+SocksPolicy accept 192.168.1.0/24<p>
+
 ### Configure Wireguard for Public & Interface IP assignments
 
 The file setupVars.conf located in /etc/pivpn/wireguard allows you to assign listening LAN and WAN IP addresses. There are only two entries that you have to modify:
