@@ -156,7 +156,10 @@ Name      Remote IP      Virtual IP                        Bytes Received      B
 test      (none)         10.172.10.2,fd11:5ee:bad:c0de::2/128  0B                  0B          (not yet)
 ::: Disabled clients :::
 `
-  
+### Default Listening Ports
+
+CWD Gate uses only 6 service ports which are 22 (Inbound SSH), 53 (DNS frontend), 9050 and 9051 (TOR Router) and 4711 (FTL DNS). These ports are only accessible from LAN sid eand not WAN but also depends on how you have configured your firewall and router.
+
 ### Allowing SSH from LAN only ( Change as per your network specifications )
 
 `iptables -A INPUT -p tcp --dport 22 -s 192.168.2.0/24 -j ACCEPT ` && 
