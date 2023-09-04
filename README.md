@@ -150,6 +150,12 @@ The file setupVars.conf located in /etc/pivpn/wireguard allows you to assign lis
 * pivpnHOST
 
 `This is the public/internet IP address that you have assigned to your WAN port of CWD Blade Appliance. By default WireGuard uses this IP and its default port for all generated users. For example, pivpnHOST=93.143.102.63. The WireGuard profiles will use this public IP Address endpoint to perform all handshakes. `
+
+`::: Connected Clients List :::
+Name      Remote IP      Virtual IP                        Bytes Received      Bytes Sent      Last Seen
+test      (none)         10.172.10.2,fd11:5ee:bad:c0de::2/128  0B                  0B          (not yet)
+::: Disabled clients :::
+`
   
 ### Allowing SSH from LAN only ( Change as per your network specifications )
 
