@@ -1,72 +1,75 @@
 #!/bin/bash
 
 # Constants
-CHECK_PKG_INSTALLED='dpkg-query -s'
-scriptDir="/opt/pivpn"
+check_pkg_installed='dpkg-query -s'
+script_dir="/opt/pivpn"
 
 # Functions
 err() {
   echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*" >&2
 }
 
-uninstallServer() {
-  "${SUDO}" "${scriptDir}/uninstall.sh"
+uninstall_server() {
+  "${sudo}" "${script_dir}/uninstall.sh"
   exit "$?"
 }
 
 backup() {
-  "${SUDO}" "${scriptDir}/backup.sh"
+  "${sudo}" "${script_dir}/backup.sh"
   exit "$?"
 }
 
-showHelp() {
+show_help() {
   cat <<-EOF
-::: To pass off to the pivpn command for each protocol
-:::
-::: Usage: pivpn <protocol> <command> [option]
-:::
-:::  -h,  help             Show this help dialog
-:::  -u,  uninstall        Uninstall pivpn from your system!
-:::  -bk, backup           Backup VPN configs and user profiles
-EOF
+  ::: To pass off to the pivpn command for each protocol
+  :::
+  ::: Usage: pivpn <protocol> <command> [option]
+  ::: 
+  :::  -h,  help             Show this help dialog
+  :::  -u,  uninstall        Uninstall pivpn from your system!
+  :::  -bk, backup           Backup VPN configs and user profiles
+  EOF
   exit 0
 }
 
+# Fail on errors, unset variables, and non-zero exit codes in pipes
+set -euo pipefail
+
 # Must be root to use this tool
 if [[ "${EUID}" -ne 0 ]]; then
-  if ! ${CHECK_PKG_INSTALLED} sudo &> /dev/null; then
+  if ! ${check_pkg_installed} sudo &> /dev/null; then
     err "::: Please install sudo or run this as root."
     exit 1
   fi
-  export SUDO="sudo"
+  export sudo="sudo"
 fi
 
 if grep -qsEe "^NAME=['\"]?Alpine[a-zA-Z ]*['\"]?$" /etc/os-release; then
-  CHECK_PKG_INSTALLED='apk --no-cache info -e'
+  check_pkg_installed='apk --no-cache info -e'
 fi
 
 if [[ "$#" == 0 ]]; then
-  showHelp
+  show_help
 fi
 
 # Handle redirecting to specific functions based on arguments
 case "${1}" in
   wg)
-    "${scriptDir}/wireguard/pivpn.sh" "${@:2}"
+    "${script_dir}/wireguard/pivpn.sh" "${@:2}"
     ;;
   ovpn)
-    "${scriptDir}/openvpn/pivpn.sh" "${@:2}"
+    "${script_dir}/openvpn/pivpn.sh" "${@:2}"
     ;;
   "-h" | "help")
-    showHelp
+    show_help
     ;;
   "-u" | "uninstall")
-    uninstallServer
+    uninstall_server
     ;;
   "-bk" | "backup")
     backup
     ;;
   *)
-    showHelp
+    show_help
     ;;
 esac
