@@ -1,62 +1,64 @@
 #!/bin/bash -e
 
-interface=$(ip -o link \
-  | awk '{print $2}' \
-  | cut -d ':' -f 1 \
-  | cut -d '@' -f 1 \
-  | grep -v -w 'lo' \
-  | head -1)
-ipaddress=$(ip addr show "${interface}" \
-  | grep -o -E "([0-9]{1,3}[\.]){3}[0-9]{1,3}/[0-9]{2}")
-gateway=$(ip route show | awk '/default/ {print $3}')
-hostname="pivpn.test"
+# Get the first non-loopback interface
+interface=$(ip -o link | awk -F': ' '!/lo/{print $2; exit}')
 
+# Get IP address and gateway
+ipaddress=$(ip -4 addr show "$interface" | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+gateway=$(ip route show default | awk '/default/ {print $3}')
+
+# Set hostname
+hostname="pivpn.test"
+sudo hostnamectl set-hostname "${hostname}"
+
+# Error handling function
 err() {
   echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*" >&2
+  exit 1
 }
 
+# Common configuration
 common() {
-  sed -i "s/INTERFACE/${interface}/g" "${vpnconfig}"
-  sed -i "s|IPADDRESS|${ipaddress}|g" "${vpnconfig}"
-  sed -i "s/GATEWAY/${gateway}/g" "${vpnconfig}"
+  sed -i "s/INTERFACE/$interface/g" "$vpnconfig"
+  sed -i "s|IPADDRESS|$ipaddress|g" "$vpnconfig"
+  sed -i "s/GATEWAY/$gateway/g" "$vpnconfig"
 }
 
+# OpenVPN configuration
 openvpn() {
   vpnconfig="ciscripts/ci_openvpn.conf"
   twofour=1
   common
-  sed -i "s/2POINT4/${twofour}/g" "${vpnconfig}"
-  cat "${vpnconfig}"
-  exit 0
+  sed -i "s/2POINT4/$twofour/g" "$vpnconfig"
+  cat "$vpnconfig"
 }
 
+# WireGuard configuration
 wireguard() {
   vpnconfig="ciscripts/ci_wireguard.conf"
   common
-  cat "${vpnconfig}"
-  exit 0
+  cat "$vpnconfig"
 }
 
+# Main logic
 if [[ "$#" -lt 1 ]]; then
-  err "specifiy a VPN protocol to prepare"
-  exit 1
-else
-  chmod +x auto_install/install.sh
-  sudo hostnamectl set-hostname "${hostname}"
-  cat /etc/os-release
-
-  while true; do
-    case "${1}" in
-      -o | --openvpn)
-        openvpn
-        ;;
-      -w | --wireguard)
-        wireguard
-        ;;
-      *)
-        err "unknown vpn protocol"
-        exit 1
-        ;;
-    esac
-  done
+  err "Specify a VPN protocol to prepare (-o for OpenVPN, -w for WireGuard)"
 fi
+
+# Process arguments
+while [[ "$#" -gt 0 ]]; do
+  case "$1" in
+    -o | --openvpn)
+      openvpn
+      ;;
+    -w | --wireguard)
+      wireguard
+      ;;
+    *)
+      err "Unknown VPN protocol. Use -o for OpenVPN or -w for WireGuard."
+      ;;
+  esac
+  shift
+done
+
+exit 0
