@@ -3,7 +3,7 @@ import time
 import concurrent.futures
 
 # Set the DNS server IP address
-dns_server = '192.168.100.64' # Change to your GATE's FTL IP address.
+dns_server = '192.168.100.64' # Change to your GATE's FTL or Unbound dedicated DNS IP address.
 
 # Set the domain name to resolve
 domain_name = 'cwd.systems'
