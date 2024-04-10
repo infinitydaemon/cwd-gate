@@ -36,7 +36,13 @@ if __name__ == '__main__':
 
 CWD GATE appliance serves as a crucial component in an organization's cybersecurity infrastructure, providing proactive defense against a wide range of cyber threats in today's increasingly complex threat landscape.
 
-CWD Systems release of Pi-hole comes pre-configured and installed in CWD Gate appliance and is a vital component of privacy package. All you have to do is let your network make use of it. In order to use TOR, you have to configure your client side proxies to use the appliance IP and Port respectively. You can get away by adding plug-ins such as FoxyProxy and overcome the system-wide proxy declarations via Bash in Linux or Internet Settings in Windows.
+The CWD GATE appliance integrates Unbound DNS SEC validation alongside its robust security features. Unbound DNS SEC validation enhances the security and integrity of DNS resolution by verifying digital signatures attached to DNS responses, thereby mitigating risks associated with DNS spoofing and cache poisoning attacks.
+
+CWD Systems' release of Pi-hole is pre-configured and installed within the CWD GATE appliance, constituting a vital component of its privacy package. Pi-hole acts as a network-wide ad blocker and DNS sinkhole, preventing unwanted ads and tracking domains from infiltrating your network. All that's required is to enable your network to leverage its capabilities.
+
+Moreover, for those seeking to utilize TOR for enhanced anonymity and privacy, configuration involves directing client-side proxies to utilize the CWD GATE appliance's IP address and port respectively. This configuration can be achieved through various means, such as utilizing plug-ins like FoxyProxy, or by overriding system-wide proxy declarations via Bash in Linux or Internet Settings in Windows.
+
+In essence, the CWD GATE appliance not only safeguards your network against cyber threats with its advanced security measures but also offers tools for enhancing privacy and anonymity, making it a comprehensive solution for modern cybersecurity needs.
 
 ## Post-install: Make your network take advantage of CWD Gate
 
