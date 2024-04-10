@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
 -----
 
-## Pre-installed and configured with Kernel 6.9.0 OpSec
+## Pre-installed and configured shipped with CWD The Dark Hadou Kernel
 
 CWD GATE appliance serves as a crucial component in an organization's cybersecurity infrastructure, providing proactive defense against a wide range of cyber threats in today's increasingly complex threat landscape.
 
