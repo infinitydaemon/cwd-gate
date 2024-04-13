@@ -17,9 +17,9 @@ class CWD_GATE():
   def __init__(self):
     self.name = "cwd";
     self.username = "cwdsystems";
-    self.location = "KyrgzRepublic";
+    self.location = "Global";
     self.protonmail = "@cwdsystems";
-    self.web = "https://cwd.systems";
+    self.web = "https://cwd.systems & https://0kn.io";
     self.languages ="Python,C,PHP,HTML,Bash,Assembly";
   
   def __str__(self):
