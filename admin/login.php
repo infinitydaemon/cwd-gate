@@ -26,7 +26,7 @@ require 'scripts/pi-hole/php/header.php';
             <div class="text-center">
                 <img src="img/cwd.svg" alt="Pi-hole logo" class="loginpage-logo">
             </div>
-            <div class="panel-title text-center"><span class="logo-lg" style="font-size: 25px;">CWD-<b>Gate</b></span></div>
+            <div class="panel-title text-center"><span class="logo-lg" style="font-size: 25px;">0KN-<b>Gate</b></span></div>
         </div>
         <!-- /.login-logo -->
 
@@ -67,9 +67,9 @@ require 'scripts/pi-hole/php/header.php';
                                 </div>
                             </div>
                             <div class="box-body">
-                                <p>The password for CWD Gate Pi-hole cannot be retrieved later on, but it is possible to set
+                                <p>The password for 0KN Gate Pi-hole cannot be retrieved later on, but it is possible to set
                                     a new password (or explicitly disable the password by setting an empty password)
-                                    using the command
+                                    using the command on SSH terminal
                                 </p>
                                 <pre>sudo pihole -a -p</pre>
                             </div>
@@ -89,7 +89,7 @@ require 'scripts/pi-hole/php/header.php';
 
 <div class="login-donate">
     <div class="text-center" style="font-size:125%">
-        <strong><a href="https://cwd.systems/" rel="noopener" target="_blank"> CWD SYSTEMS</a></strong>
+        <strong><a href="https://cwd.systems/" rel="noopener" target="_blank"> CWD SYSTEMS & 0KN</a></strong>
     </div>
 </div>
 <script src="scripts/pi-hole/js/footer.js?v=<?php echo $cacheVer; ?>"></script>
