@@ -32,11 +32,11 @@ if __name__ == '__main__':
 
 -----
 
-## Pre-installed and configured shipped with CWD The Dark Hadou Kernel
+## Pre-installed and configured shipped with CWD The Crawling Serpent Kernel
 
 CWD GATE appliance serves as a crucial component in an organization's cybersecurity infrastructure, providing proactive defense against a wide range of cyber threats in today's increasingly complex threat landscape.
 
-The CWD GATE appliance integrates Unbound DNS SEC validation alongside its robust security features. Unbound DNS SEC validation enhances the security and integrity of DNS resolution by verifying digital signatures attached to DNS responses, thereby mitigating risks associated with DNS spoofing and cache poisoning attacks.
+The CWD GATE appliance integrates Unbound DNS SEC validation alongside its robust security features. Unbound DNS SEC validation enhances the security and integrity of DNS resolution by verifying digital signatures attached to DNS responses, thereby mitigating risks associated with DNS spoofing and cache poisoning attacks. In short, you have your own DNS server answering your DNS queries. When you use public DNS servers (e.g., Google DNS, Cloudflare DNS), your browsing activity may be logged. Running your own DNS server avoids this potential exposure. 
 
 CWD Systems' release of Pi-hole is pre-configured and installed within the CWD GATE appliance, constituting a vital component of its privacy package. Pi-hole acts as a network-wide ad blocker and DNS sinkhole, preventing unwanted ads and tracking domains from infiltrating your network. All that's required is to enable your network to leverage its capabilities.
 
